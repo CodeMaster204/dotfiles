@@ -80,4 +80,10 @@ vim.opt.expandtab = true            -- tabs are spaces, mainly because of Python
 -- Hiding which mode we are in
 -- vim.opt.showmode = false
 
+
+
+-- Making it so that concealment is enabled
+vim.opt.conceallevel = 2
+-- vim.opt.concealcursor = "nc" -- This makes it so that concealment is active even in normal mode
+
 -- vim: ts=2 sts=2 sw=2 et
