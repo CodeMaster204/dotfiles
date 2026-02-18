@@ -69,7 +69,9 @@ require('lazy').setup({
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
-  require 'custom.plugins.vimtex'
+  require 'custom.plugins.vimtex',
+  require 'custom.plugins.luasnip',
+  require 'custom.plugins.completions',
 
 }, {
   ui = {

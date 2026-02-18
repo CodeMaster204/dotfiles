@@ -1,0 +1,25 @@
+return {
+	"L3MON4D3/LuaSnip",
+	version = "v2.*",
+    build = "make install_jsregexp",
+    event = "InsertEnter",
+    config = function()
+        require("luasnip.loaders.from_lua").lazy_load({paths = "./lua/luasnip/"})
+        local ls = require("luasnip")
+        ls.setup({
+            update_events = {"TextChanged", "TextChangedI"},
+            enable_autosnippets = true,
+            store_selection_keys = "<Tab>",
+        })
+        vim.keymap.set({"i"}, "<C-y>", function() ls.expand() end, {silent = true, desc = "expand autocomplete"})
+        vim.keymap.set({"i", "s"}, "lk", function() ls.jump( 1) end, {silent = true, desc = "next autocomplete"})
+        vim.keymap.set({"i", "s"}, "k", function() ls.jump( 1) end, {silent = true, desc = "next autocomplete"})
+        vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true, desc = "previous autocomplete"})
+        vim.keymap.set({"i", "s"}, "<C-E>", function()
+            if ls.choice_active() then
+                ls.change_choice(1)
+            end
+        end, {silent = true, desc = "select autocomplete"})
+    end
+}
+

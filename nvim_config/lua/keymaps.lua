@@ -21,8 +21,10 @@ local opts = {
   noremap = true,
   silent = true,
 }
-vim.api.nvim_set_keymap('i', 'lk', '<Esc>', opts)
-vim.api.nvim_set_keymap('i', 'kl', '<Esc>', opts)
+
+-- this can be uncommented ot set lk and kl as escape. however, since I have mapped caps lock to escape, this no longer serves its use
+-- vim.api.nvim_set_keymap('i', 'lk', '<Esc>', opts)
+-- vim.api.nvim_set_keymap('i', 'kl', '<Esc>', opts)
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')

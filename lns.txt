@@ -1,0 +1,6 @@
+intercept-caps2esc/caps2esc.yml:
+  /etc/interception/udevmon.yaml
+zsh/zshrc:
+  ~/.zshrc
+nvim_config:
+  ~/.congif/nvim
