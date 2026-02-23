@@ -52,7 +52,7 @@ return{
 
     s({trig="sup", snippetType="autosnippet", dscr="Expand into a supremum"},
         fmta(
-            [[\sum_{<>} ]],
+            [[\sup_{<>} ]],
             {i(1)}
         ),
         {condition = math}

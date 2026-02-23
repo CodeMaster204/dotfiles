@@ -20,6 +20,12 @@ local function notmath()
     return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 0
 end
 
+local function compose_with_and(f1,f2)
+    return function(...)
+        return f1() and f2(...)
+    end
+end
+
 
 local snippets = {
     -- ================================Generic modifiers (^ and _)
@@ -113,7 +119,7 @@ local snippets = {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="ssE", snippetType="autosnippet", dscr="subsection"},
@@ -123,7 +129,7 @@ local snippets = {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="sssE", snippetType="autosnippet", dscr="subsubsection"},
@@ -133,7 +139,7 @@ local snippets = {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="sP", snippetType="autosnippet", dscr="paragraph"},
@@ -143,7 +149,7 @@ local snippets = {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="ssP", snippetType="autosnippet", dscr="subparagraph"},
@@ -153,7 +159,57 @@ local snippets = {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="seE", snippetType="autosnippet", dscr="starred section"},
+        fmta(
+            [[\section*{<>}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="sseE", snippetType="autosnippet", dscr="starred subsection"},
+        fmta(
+            [[\subsection*{<>}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="ssseE", snippetType="autosnippet", dscr="starred subsubsection"},
+        fmta(
+            [[\subsubsection*{<>}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="spP", snippetType="autosnippet", dscr="starred paragraph"},
+        fmta(
+            [[\paragraph*{<>}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="sspP", snippetType="autosnippet", dscr="starred subparagraph"},
+        fmta(
+            [[\subparagraph*{<>}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     ------------------------- LEFT RIGHT PAIRS (w/ or w/o left right mods)
@@ -252,6 +308,9 @@ local other_abbrevs= {
     dot = "\\cdot ",
     circ = "\\circ ",
 
+    min = "\\min",
+    max = "\\max",
+
     vdd = "\\vdots",
     ddd = "\\ddots", -- ... lives in the above block
 
@@ -280,8 +339,8 @@ local other_abbrevs= {
     lor = "\\lor ",
     lnot = "\\lnot ",
 
-    quad = "\\quad",
-    qquad = "\\qquad",
+    qad = "\\quad",
+    qqad = "\\qquad",
 
 }
 for trig, expansion in pairs(other_abbrevs) do

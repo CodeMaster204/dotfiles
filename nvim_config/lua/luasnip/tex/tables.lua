@@ -1,4 +1,4 @@
--- Linear algebra snippets (mostly matrices for now)
+-- Tables in latex. essentially the same as linalg.lua
 
 
 
@@ -22,7 +22,7 @@ local function notmath()
     return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 0
 end
 
-local function matrixBody(_, snip)
+local function tableBody(_, snip)
     local rows = tonumber(snip.captures and snip.captures[1]) -- Number of rows
     local cols = tonumber(snip.captures and snip.captures[2]) -- Number of columns
     local nodes = {} -- Nodes table, essentially the dynamically generated fmta
@@ -49,55 +49,21 @@ local function matrixBody(_, snip)
     return sn(nil, nodes)
 end
 
-function whichMatrix(_, snip)
-    if snip.captures[3] == "p" then
-        return sn(nil, {t("pmatrix")})
-    elseif snip.captures[3] == "b" then
-        return sn(nil, {t("bmatrix")})
-    else
-        return sn(nil, {t("vmatrix")})
-    end
-end
-
 return{
     s(
-        {trig = "(%d+)x(%d+)([pbv])at", regTrig=true, snippetType="autosnippet"},
+        {trig = "(%d+)x(%d+)tab", regTrig=true, snippetType="autosnippet"},
         {
             -- Begin part of the snippet
-            t("\\begin{"),
-            d(1, whichMatrix),
+            t("\\begin{tabular}{"),
+            i(1),
             t({"}", ""}),
 
-            -- Body of the matrix
+            -- Body of the table
 
-            d(2, matrixBody),
+            d(2, tableBody),
 
             -- End part of the snippet
-            
-            t({"","\\end{"}),
-            d(3, whichMatrix),
-            t("}"),
-            
+            t({"","\\end{tabular}"}),
         }
-    ),
-
-    ----------------------------------- OTHER
-
-    s({trig="norm", snippetType="autosnippet", dscr="Double barred norm for vectors - with left/right"},
-        fmta(
-            [[\left\lVert<>\right\rVert ]],
-            {i(1)}
-        ),
-        {condition = math}
-    ),
-    
-    s({trig="iat", snippetType="autosnippet", dscr="i hat vector"},
-        t("\\hat{\\imath}"),
-        {condition = math}
-    ),
-
-    s({trig="jat", snippetType="autosnippet", dscr="j hat vector"},
-        t("\\hat{\\jmath}"),
-        {condition = math}
     ),
 }

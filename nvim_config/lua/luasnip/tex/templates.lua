@@ -26,10 +26,23 @@ end
 local commands = [[
 \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
 \newcommand{\prob}{\ensuremath{\operatorname{Pr}\!}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
 ]]
+-- Source for the cool augmented matrix stuff:
+-- % Source - https://tex.stackexchange.com/a/2244
+-- % Posted by Stefan Kottwitz, modified by community. See post 'Timeline' for change history
+-- % Retrieved 2026-02-21, License - CC BY-SA 3.0
+
 local packages = [[
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{esint}
+\usepackage[margin=1in]{geometry}
 ]]
 
 local function commands_node()
@@ -51,6 +64,7 @@ return {
 <>
 <>
 \title{<>}
+\author{<>}
 \date{\today}
 \begin{document}
 \maketitle
@@ -64,7 +78,8 @@ return {
                 {
                     packages_node(), commands_node(), 
                     i(1,"Title"),
-                    i(2)
+                    i(2,"Author"),
+                    i(3)
                 }
             ),
 

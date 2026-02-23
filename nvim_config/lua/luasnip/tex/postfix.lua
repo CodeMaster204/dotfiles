@@ -25,7 +25,7 @@ return{
     --postfixes for vectors, hats, etc. The match pattern is '\\' plus the default (so that hats get put on greek letters,e.g.)
     postfix({trig="hat", match_pattern = [[[\\%w%.%_%-%"%']+$]], snippetType="autosnippet",dscr="postfix hat when in math mode"},
         {l("\\hat{" .. l.POSTFIX_MATCH .. "}")}, 
-        { condition=math }
+        {condition=math}
     ) ,
     postfix({trig="bec", match_pattern = [[[\\%w%.%_%-%"%']+$]] ,snippetType="autosnippet",dscr="postfix vec when in math mode, but boldface"},
         {l("\\textbf{" .. l.POSTFIX_MATCH .. "}")}, 

@@ -17,15 +17,22 @@ local function math()
 end
 
 local function notmath()
-    return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 0
+    return not math()
+end
+
+local function compose_with_and(f1,f2)
+    return function(...)
+        return f1(...) and f2(...)
+    end
 end
 
 
 
 
-
-
 return {
+    
+    --                   NON MATH ENVS
+    
     s({trig="fig", snippetType="snippet", dscr="A basic figure environment"},
         fmta(
             [[
@@ -46,6 +53,47 @@ return {
             i(4,"figureLabel"),}
         )
     ),
+    
+    s({trig="desc", snippetType="autosnippet", dscr="Start a description environment"},
+        fmta(
+            [[
+            \begin{description}
+                <>
+            \end{description}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="item", snippetType="autosnippet", dscr="Start an itemize environment"},
+        fmta(
+            [[
+            \begin{itemize}
+                <>
+            \end{itemize}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="enum", snippetType="autosnippet", dscr="Start an enumerate environment"},
+        fmta(
+            [[
+            \begin{enumerate}
+                <>
+            \end{enumerate}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    -- MATH ENVS
 
     s({trig="neww", snippetType="autosnippet", dscr="Begin and end an arbitrary environment"},
         fmta(
@@ -70,7 +118,7 @@ return {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="aa", snippetType="autosnippet", dscr="Start an align environment"},
@@ -83,7 +131,7 @@ return {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="saa", snippetType="autosnippet", dscr="Start an align* environment"},
@@ -96,7 +144,7 @@ return {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
     s({trig="nn", snippetType="autosnippet", dscr="Start an equation environment"},
@@ -109,7 +157,7 @@ return {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
     
     s({trig="mm", snippetType="autosnippet", dscr="Start inline math mode"},
@@ -130,7 +178,7 @@ return {
             ]],
             {i(1)}
         ),
-        {condition = notmath and line_begin}
+        {condition = compose_with_and(notmath, line_begin)}
     ),
 
 
