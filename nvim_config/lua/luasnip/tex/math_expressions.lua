@@ -47,7 +47,7 @@ local snippets = {
     
     --------------------------------------...
     
-    s({trig="...", snippetType="autosnippet", dscr="... -> \\cdots"}, t("\\cdots "), 
+    s({trig="...", snippetType="autosnippet", dscr="... -> \\dotsc"}, t("\\dotsc "), 
         {condition = math}
     ),
 
@@ -240,7 +240,7 @@ local snippets = {
 
     s({trig="lra", snippetType="autosnippet", dscr="left right angled brackets pair"},
         fmta(
-            [[\left\langle <> \right\langle ]],
+            [[\left\langle <> \right\rangle ]],
             {i(1)}
         ),
         {condition = math}
@@ -306,18 +306,21 @@ local other_abbrevs= {
 
     time = "\\times ",
     dot = "\\cdot ",
+    cdots = "\\cdots ",
     circ = "\\circ ",
 
     min = "\\min",
     max = "\\max",
 
     vdd = "\\vdots",
-    ddd = "\\ddots", -- ... lives in the above block
+    ddd = "\\ddots", -- ... lives in the above block (at least the normal \dotsc)
 
     to = "\\to ",
     mto = "\\mapsto ",
     impl = "\\Rightarrow ",
     iff = "\\iff ",
+    fral = "\\forall ",
+    Exi = "\\exists ",
 
     inn = "\\in ",
     nin = "\\notin ",
