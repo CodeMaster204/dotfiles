@@ -328,6 +328,7 @@ local other_abbrevs= {
     cap = "\\cap ",
     subb = "\\subset ",
     subeq = "\\subseteq ",
+    empty = "\\emptyset ",
 
     trianglel = "\\triangleleft ",
 

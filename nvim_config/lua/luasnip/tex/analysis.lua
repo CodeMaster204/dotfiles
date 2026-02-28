@@ -34,7 +34,7 @@ return{
 
     s({trig="lim", snippetType="autosnippet", dscr="Expand into a limit of something"},
         fmta(
-            [[\lim_{<> \\to <>} <>]],
+            [[\lim_{<> \to <>} <>]],
             {i(1,"n"), i(2,"\\infty"), i(3,"u_{n}")}
         ),
         {condition = math}

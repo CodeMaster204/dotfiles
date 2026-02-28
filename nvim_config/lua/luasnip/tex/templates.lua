@@ -25,7 +25,7 @@ end
 
 local commands = [[
 \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
-\newcommand{\prob}{\ensuremath{\operatorname{Pr}\!}}
+\newcommand{\prob}{\ensuremath{\operatorname{Pr}}}
 
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
