@@ -314,6 +314,9 @@ local other_abbrevs= {
     vdd = "\\vdots",
     ddd = "\\ddots", -- ... lives in the above block (at least the normal \dotsc)
 
+    sim = "\\sim",
+    rel = "\\sim", -- I may use both
+
     to = "\\to ",
     mto = "\\mapsto ",
     impl = "\\implies ",

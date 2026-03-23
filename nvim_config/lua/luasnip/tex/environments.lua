@@ -233,7 +233,7 @@ return {
         {condition = math}
     ),
 
-    s({trig="over", snippetType="autosnippet", dscr="Expand into overline", wordTrig=true},
+    s({trig="overl", snippetType="autosnippet", dscr="Expand into overline", wordTrig=true},
         fmta(
             [[\overline{<>} ]],
             {i(1, "z")}
@@ -245,6 +245,22 @@ return {
         fmta(
             [[\tag{<>} ]],
             {i(1, "")}
+        ),
+        {condition = math}
+    ),
+
+    s({trig="overs", snippetType="autosnippet", dscr="Expand into overset", wordTrig=true},
+        fmta(
+            [[\overset{<>}{<>} ]],
+            {i(1, "over"), i(2,"main")}
+        ),
+        {condition = math}
+    ),
+
+    s({trig="unders", snippetType="autosnippet", dscr="Expand into underset", wordTrig=true},
+        fmta(
+            [[\underset{<>}{<>} ]],
+            {i(1, "over"), i(2,"main")}
         ),
         {condition = math}
     ),
