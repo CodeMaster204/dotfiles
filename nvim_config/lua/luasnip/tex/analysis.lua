@@ -30,6 +30,14 @@ return{
         {condition = math}
     ),
 
+    s({trig="seq", snippetType="autosnippet", dscr="Expand into a sequence of things (x_n)_n in smth"},
+        fmta(
+            [[(<>_{<>})_{<> \in <>}]],
+            {i(1, "x"), i(2,"n"), i(3,"n"), i(4,"\\mathbb{N}")}
+        ),
+        {condition = math}
+    ),
+
     -----------------------------LIMITS
 
     s({trig="limm", snippetType="autosnippet", dscr="Expand into a limit of something"},

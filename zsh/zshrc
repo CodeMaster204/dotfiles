@@ -74,9 +74,10 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 zinit light junegunn/fzf
 #zinit light ajeetdsouze/zoxide
-#eval "$(zoxide init zsh)"
 zinit snippet OMZP::git
 zinit snippet OMZP::colored-man-pages
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# This is required for zoxide.
+eval "$(zoxide init zsh)"

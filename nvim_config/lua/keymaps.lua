@@ -73,7 +73,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- PLUGIN SPECIFIC
+
 -- Neo-tree
 vim.keymap.set('n', '<leader>n', ':Neotree toggle <CR>', { desc = 'Toggle neotree' })
+
+-- Neogen
+vim.keymap.set('n', '<leader>k', ':Neogen <CR>', { desc = 'Trigger code documentation (Neogen)' })
 
 -- vim: ts=2 sts=2 sw=2 et

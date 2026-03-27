@@ -241,6 +241,13 @@ return {
         {condition = math}
     ),
     
+    s({trig="underline", dscr="Expand into underline", wordTrig=true},
+        fmta(
+            [[\underline{<>} ]],
+            {i(1, "z")}
+        )
+    ),
+
     s({trig="tag", snippetType="autosnippet", dscr="Expand into tag", wordTrig=true},
         fmta(
             [[\tag{<>} ]],

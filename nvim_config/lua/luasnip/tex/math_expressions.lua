@@ -47,6 +47,10 @@ local snippets = {
 
     --------------------------------------...and other things that couldn't go into the big table underneath
 
+    s({trig=";\\", snippetType="autosnippet", dscr=" ;\\ -> \\backslash"}, t("\\backslash"),
+        {condition = math}
+    ),
+
     s({trig="...", snippetType="autosnippet", dscr="... -> \\dotsc"}, t("\\dotsc "),
         {condition = math}
     ),
@@ -302,6 +306,7 @@ local other_abbrevs= {
     iny = "\\infty ",
     del = "\\partial",
     dee = "\\diff",
+    ell = "\\ell",
 
     time = "\\times ",
     dot = "\\cdot ",
