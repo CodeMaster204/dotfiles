@@ -47,7 +47,7 @@ local snippets = {
 
     --------------------------------------...and other things that couldn't go into the big table underneath
 
-    s({trig=";\\", snippetType="autosnippet", dscr=" ;\\ -> \\backslash"}, t("\\backslash"),
+    s({trig=";\\", snippetType="autosnippet", dscr=" ;\\ -> \\backslash"}, t("\\backslash "),
         {condition = math}
     ),
 
@@ -60,6 +60,14 @@ local snippets = {
     ),
 
     s({trig=".;", snippetType="autosnippet", dscr=".; -> \\;"}, t("\\; "),
+        {condition = math}
+    ),
+
+    s({trig="mod", snippetType="autosnippet", dscr="Expand into \\pmod{<>}", wordTrig=true},
+        fmta(
+            [[\pmod{<>} ]],
+            {i(1)}
+        ),
         {condition = math}
     ),
 
@@ -222,6 +230,14 @@ local snippets = {
         {condition = math}
     ),
 
+    s({trig="lrb", snippetType="autosnippet", dscr="left right bracket pair"},
+        fmta(
+            [[\left[ <> \right] ]],
+            {i(1)}
+        ),
+        {condition = math}
+    ),
+
     s({trig="lrs", snippetType="autosnippet", dscr="left right curly brackets pair"},
         fmta(
             [[\left\{ <> \right\} ]],
@@ -248,8 +264,8 @@ local snippets = {
     
     s({trig="eval", snippetType="autosnippet", dscr="Evaluation bar. Write before expression to be evaluated"},
         fmta(
-            [[\left. <> \right|_{<>}]],
-            {i(1), i(2)}
+            [[\left. <> \right|_{<>}^{<>}]],
+            {i(1), i(2), i(3)}
         ),
         {condition = math}
     ),
@@ -321,6 +337,8 @@ local other_abbrevs= {
 
     sim = "\\sim",
     rel = "\\sim", -- I may use both
+    cong = "\\equiv", -- I know \cong exists, but I don't like it
+                   -- Mod(n) is above
 
     to = "\\to ",
     mto = "\\mapsto ",

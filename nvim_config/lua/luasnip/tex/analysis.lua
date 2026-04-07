@@ -133,7 +133,15 @@ return{
 
     s({trig="inta", snippetType="autosnippet", dscr="Expand into double integral over a subscript"},
         fmta(
-            [[\int\int_{<>} <> \diff <>]],
+            [[\iint_{<>} <> \diff <>]],
+            {i(1,"S"), i(2, "f(x,y)"), i(3,"A")}
+        ),
+        {condition = math}
+    ),
+
+    s({trig="intv", snippetType="autosnippet", dscr="Expand into triple integral over a subscript"},
+        fmta(
+            [[\iiint_{<>} <> \diff <>]],
             {i(1,"S"), i(2, "f(x,y)"), i(3,"A")}
         ),
         {condition = math}

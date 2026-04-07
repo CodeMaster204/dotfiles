@@ -42,6 +42,8 @@ local commands = [[
 local packages = [[
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage[margin=1in]{geometry}
+%\usepackage{graphicx}
+%\usepackage{float}
 % \usepackage{esint}
 % \usepackage{tikz}
 % \usepackage{verbatim}
@@ -171,6 +173,7 @@ return {
         }),
         {condition=line_begin}
     ),
+
     s({trig= "codeheader", dscr = "Latex header for code inclusions"},
         t(vim.split(code_inclusion_header, "\n")),
         {condition = line_begin}
