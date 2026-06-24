@@ -56,6 +56,22 @@ return{
         {condition = math}
     ),
 
+    s({trig="lims", snippetType="autosnippet", dscr="Expand into a limit supremum over something"},
+        fmta(
+            [[\limsup_{<> \to \\infty} <>]],
+            {i(1,"n"), i(2,"u_{n}")}
+        ),
+        {condition = math}
+    ),
+    
+    s({trig="limi", snippetType="autosnippet", dscr="Expand into a limit infimum over something"},
+        fmta(
+            [[\liminf_{<> \to \\infty} <>]],
+            {i(1,"n"), i(2,"u_{n}")}
+        ),
+        {condition = math}
+    ),
+
     -----------------------------INF AND SUP
 
     s({trig="sup", snippetType="autosnippet", dscr="Expand into a supremum"},

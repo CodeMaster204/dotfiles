@@ -54,6 +54,13 @@ return {
             i(5,"figureLabel"),}
         )
     ),
+
+    s({trig="codeinclude", dscr="Includes a code file"},
+        fmta([[\lstinputlisting[language=<>]{<>}]],
+            {i(1, "Python"), i(2,"file.py")}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
     
     s({trig="desc", snippetType="autosnippet", dscr="Start a description environment"},
         fmta(

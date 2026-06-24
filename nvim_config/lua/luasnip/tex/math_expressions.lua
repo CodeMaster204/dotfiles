@@ -122,7 +122,7 @@ local snippets = {
         {condition = math}
     ),
 
-    s({trig="ccup", snippetType="autosnippet", dscr="Big union notation"},
+    s({trig="Cup", snippetType="autosnippet", dscr="Big union notation"},
         fmta(
             [[\bigcup_{<>}]],
             {i(1)}
@@ -130,7 +130,7 @@ local snippets = {
         {condition = math}
     ),
 
-    s({trig="ccap", snippetType="autosnippet", dscr="Big intersection notation"},
+    s({trig="Cap", snippetType="autosnippet", dscr="Big intersection notation"},
         fmta(
             [[\bigcap_{<>}]],
             {i(1)}
@@ -264,7 +264,7 @@ local snippets = {
     
     s({trig="eval", snippetType="autosnippet", dscr="Evaluation bar. Write before expression to be evaluated"},
         fmta(
-            [[\left. <> \right|_{<>}^{<>}]],
+            [[\left[ <> \right|_{<>}^{<>}]],
             {i(1), i(2), i(3)}
         ),
         {condition = math}
@@ -306,38 +306,39 @@ local snippets = {
 
 
 local other_abbrevs= {
-    sin = "\\sin",
-    cos = "\\cos",
-    tan = "\\tan",
-    asin = "\\arcsin",
-    acos = "\\arccos",
-    atan = "\\arctan",
-    hsin = "\\sinh",
-    hcos = "\\cosh",
-    htan = "\\tanh",
+    sin = "\\sin ",
+    cos = "\\cos ",
+    tan = "\\tan ",
+    asin = "\\arcsin ",
+    acos = "\\arccos ",
+    atan = "\\arctan ",
+    hsin = "\\sinh ",
+    hcos = "\\cosh ",
+    htan = "\\tanh ",
 
-    ln = "\\ln",
-    loge = "\\log", -- Log base a is above
+    ln = "\\ln ",
+    loge = "\\log ", -- Log base a is above
 
     iny = "\\infty ",
-    del = "\\partial",
-    dee = "\\diff",
-    ell = "\\ell",
+    del = "\\partial ",
+    dee = "\\diff ",
+    ell = "\\ell ",
 
     time = "\\times ",
     dot = "\\cdot ",
     cdots = "\\cdots ",
     circ = "\\circ ",
 
-    min = "\\min",
-    max = "\\max",
+    min = "\\min ",
+    max = "\\max ",
 
-    vdd = "\\vdots",
-    ddd = "\\ddots", -- ... lives in the above block (at least the normal \dotsc)
+    vdd = "\\vdots ",
+    ddd = "\\ddots ", -- ... lives in the above block (at least the normal \dotsc)
 
-    sim = "\\sim",
-    rel = "\\sim", -- I may use both
-    cong = "\\equiv", -- I know \cong exists, but I don't like it
+    sim = "\\sim ",
+    rel = "\\sim ", -- I may use both
+    iso = "\\simeq ",
+    cong = "\\equiv ", -- I know \cong exists, but I don't like it
                    -- Mod(n) is above
 
     to = "\\to ",
@@ -370,8 +371,8 @@ local other_abbrevs= {
     lor = "\\lor ",
     lnot = "\\lnot ",
 
-    qad = "\\quad", -- \; and \, are above 
-    qqad = "\\qquad",
+    qad = "\\quad ", -- \; and \, are above 
+    qqad = "\\qquad ",
 }
 for trig, expansion in pairs(other_abbrevs) do
 

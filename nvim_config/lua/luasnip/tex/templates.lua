@@ -77,6 +77,14 @@ local code_inclusion_header = [[
     tabsize=2 
 }
 \lstset{style=mystyle}
+\lstset{literate=%
+{æ}{{\ae}}1
+{å}{{\aa}}1
+{ø}{{\o}}1
+{Æ}{{\AE}}1
+{Å}{{\AA}}1
+{Ø}{{\O}}1
+}
 ]]
 
 local function commands_node()
