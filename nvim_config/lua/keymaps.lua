@@ -7,6 +7,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic floating window' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -79,5 +80,37 @@ vim.keymap.set('n', '<leader>n', ':Neotree toggle <CR>', { desc = 'Toggle neotre
 
 -- Neogen
 vim.keymap.set('n', '<leader>k', ':Neogen <CR>', { desc = 'Trigger code documentation (Neogen)' })
+
+-- Autopairs
+
+-- Autopairs:
+local ls = require("luasnip")
+
+local function jump()
+  if ls.jumpable(1) then
+    ls.jump(1)
+    return
+  end
+
+  local col = vim.fn.col(".")
+  local line = vim.fn.getline(".")
+  local next = line:sub(col,col)
+  if next:match("[%)%]%}%\"%'`]") then
+      vim.api.nvim_feedkeys(
+          vim.keycode("<Right>"),
+          "n",
+          false
+      )
+      return
+  end
+end
+vim.keymap.set('i', "lk", jump, {silent=true})
+vim.keymap.set('i', "kl", jump, {silent=true})
+
+-- vim.keymap.set("i", "", function()
+--   local col = vim.fn.col(".")
+--   local line = vim.fn.getline(".")
+--   return closers[line:sub(col, col)] and "<Right>" or "lk"
+-- end, { expr = true })
 
 -- vim: ts=2 sts=2 sw=2 et
