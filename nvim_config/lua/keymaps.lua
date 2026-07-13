@@ -87,10 +87,10 @@ vim.keymap.set('n', '<leader>k', ':Neogen <CR>', { desc = 'Trigger code document
 local ls = require("luasnip")
 
 local function jump()
-  if ls.jumpable(1) then
-    ls.jump(1)
-    return
-  end
+  -- if ls.jumpable(1) then
+  --   ls.jump(1)
+  --   return
+  -- end
 
   local col = vim.fn.col(".")
   local line = vim.fn.getline(".")
@@ -104,8 +104,8 @@ local function jump()
       return
   end
 end
-vim.keymap.set('i', "lk", jump, {silent=true})
-vim.keymap.set('i', "kl", jump, {silent=true})
+vim.keymap.set('i', "df", jump, {silent=true})
+vim.keymap.set('i', "fd", jump, {silent=true})
 
 -- vim.keymap.set("i", "", function()
 --   local col = vim.fn.col(".")
