@@ -48,6 +48,7 @@ local packages = [[
 % \usepackage{tikz}
 % \usepackage{verbatim}
 % \usepackage{hyperref}
+% \usepackage{csquotes}
 ]]
 
 local code_inclusion_header = [[

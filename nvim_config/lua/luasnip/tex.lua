@@ -8,6 +8,7 @@ local modules = {
     require("luasnip.tex.tables"), -- Linear algebra snippets
     require("luasnip.tex.templates"), -- Linear algebra snippets
     require("luasnip.tex.probas"), -- Linear algebra snippets
+    require("luasnip.tex.refs"), -- referencing and bibliography
 }
 
 local all_snippets = {}
