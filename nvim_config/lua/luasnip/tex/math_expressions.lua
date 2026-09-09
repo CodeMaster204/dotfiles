@@ -337,7 +337,9 @@ local other_abbrevs= {
 
     sim = "\\sim ",
     rel = "\\sim ", -- I may use both
-    iso = "\\simeq ",
+    seq = "\\simeq ",
+    req = "\\simeq ",
+    iso = "\\cong ",
     cong = "\\equiv ", -- I know \cong exists, but I don't like it
                    -- Mod(n) is above
 
