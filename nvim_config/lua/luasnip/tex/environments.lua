@@ -62,6 +62,19 @@ return {
         {condition = compose_with_and(notmath, line_begin)}
     ),
     
+    s({trig="tpic", snippetType="autosnippet", dscr="Begins a TikZ picture environment"},
+        fmta(
+            [[
+            \begin{tikzpicture}<>
+                <>
+            \end{tikzpicture}
+            
+            ]],
+            {i(1,"[domain=0:4]"),i(2)}
+        ),
+        {condition= line_begin}
+    ),
+
     s({trig="desc", snippetType="autosnippet", dscr="Start a description environment"},
         fmta(
             [[
@@ -192,7 +205,7 @@ return {
 
 
 
-    -- Font styles other than mathcal in letters.lua
+    -- Font styles
     s({trig="iit", snippetType="autosnippet", dscr="Italic text"},
         fmta(
             [[\textit{<>} ]],
@@ -235,6 +248,14 @@ return {
     s({trig="cal", snippetType="autosnippet", dscr="Calligraphic font"},
         fmta(
             [[\mathcal{<>} ]],
+            {i(1)}
+        ),
+        {condition = math}
+    ),
+
+    s({trig="frak", snippetType="autosnippet", dscr="Fraktur font"},
+        fmta(
+            [[\mathfrak{<>} ]],
             {i(1)}
         ),
         {condition = math}

@@ -318,6 +318,8 @@ local other_abbrevs= {
 
     ln = "\\ln ",
     loge = "\\log ", -- Log base a is above
+    real = "\\mathrm{Re}",
+    imag = "\\mathrm{Im}",
 
     iny = "\\infty ",
     del = "\\partial ",
