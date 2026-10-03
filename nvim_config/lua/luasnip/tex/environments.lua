@@ -295,7 +295,7 @@ return {
     s({trig="unders", snippetType="autosnippet", dscr="Expand into underset", wordTrig=true},
         fmta(
             [[\underset{<>}{<>} ]],
-            {i(1, "over"), i(2,"main")}
+            {i(1, "under"), i(2,"main")}
         ),
         {condition = math}
     ),
