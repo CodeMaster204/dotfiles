@@ -193,8 +193,72 @@ return {
         fmta(
             [[
             \begin{proof}
-                <>
+            <>
             \end{proof}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="thm", snippetType="autosnippet", dscr="Starts a theorem environment"},
+        fmta(
+            [[
+            \begin{theorem}
+                <>
+            \end{theorem}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="cco", snippetType="autosnippet", dscr="Starts a corollary environment"},
+        fmta(
+            [[
+            \begin{corollary}
+                <>
+            \end{corollary}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="lmm", snippetType="autosnippet", dscr="Starts a lemma environment"},
+        fmta(
+            [[
+            \begin{lemma}
+                <>
+            \end{lemma}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="pbb", snippetType="autosnippet", dscr="Starts a problem environment"},
+        fmta(
+            [[
+            \begin{problem}
+                <>
+            \end{problem}
+
+            ]],
+            {i(1)}
+        ),
+        {condition = compose_with_and(notmath, line_begin)}
+    ),
+
+    s({trig="clm", snippetType="autosnippet", dscr="Starts a claim"},
+        fmta(
+            [[
+
+            \underline{Claim:} \textit{<>} \\
 
             ]],
             {i(1)}

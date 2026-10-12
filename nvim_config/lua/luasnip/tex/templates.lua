@@ -26,7 +26,14 @@ end
 local commands = [[
 \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
 \newcommand{\prob}{\ensuremath{\operatorname{Pr}}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
 
+%This is for augmented matrices
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
   \hskip -\arraycolsep
@@ -46,6 +53,7 @@ local packages = [[
 %\usepackage{float}
 % \usepackage{esint}
 % \usepackage{tikz}
+% \usepackage{tikz-cd}
 % \usepackage{verbatim}
 % \usepackage{hyperref}
 % \usepackage{csquotes}
@@ -136,7 +144,6 @@ return {
 \date{<>}
 
 \begin{document}
-
 \maketitle
 
 

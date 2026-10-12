@@ -138,6 +138,22 @@ local snippets = {
         {condition = math}
     ),
 
+    s({trig="dpl", snippetType="autosnippet", dscr="Big direct sum (oplus)"},
+        fmta(
+            [[\bigoplus_{<>}]],
+            {i(1)}
+        ),
+        {condition = math}
+    ),
+
+    s({trig="dpr", snippetType="autosnippet", dscr="Big direct product (otimes)"},
+        fmta(
+            [[\bigotimes_{<>}]],
+            {i(1)}
+        ),
+        {condition = math}
+    ),
+
     ------------------------------------SECTIONING
 
     s({trig="sE", snippetType="autosnippet", dscr="section"},
@@ -358,6 +374,8 @@ local other_abbrevs= {
     nin = "\\notin ",
     cup = "\\cup ", -- The capital versions exist in the above block, with sum and prod
     cap = "\\cap ",
+    ten = "\\otimes ", 
+    pos = "\\oplus ",
     subb = "\\subset ",
     subeq = "\\subseteq ",
     empty = "\\emptyset ",
